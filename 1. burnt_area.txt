@@ -1,0 +1,60 @@
+setwd("D:\\Forest_Fire_Work\\02. Data&Working")
+source("R_functions\\helper_functions.R")
+load_packages()
+
+## Data Loading
+rast_200x_00x <- terra::rast("02. Forest Fire\\b. merged_reprojected_geotiffs\\200x\\200x_05_06_00x_proj.tif")
+vect <- terra::vect("00. Amazon_shapefile\\projected\\amazon_shp_projected.shp")
+
+## Crop
+rast_200x_00x_crpd = crop(rast_200x_00x,vect)
+
+
+====================  Linear =================================================
+
+## Get Empty Spatial Grid
+spat_grid_200x_00x <- get_empty_grid(vect)
+
+## 0/1 Classification
+rclmat <- matrix((c(-2, 0, 0, 1, 366, 1)), ncol=3, byrow=TRUE)
+rast_200x_00x_crpd_clss <- terra::classify(rast_200x_00x_crpd, rclmat, include.lowest=TRUE)
+
+## Resampling Work
+spat_grid_200x_00x_val <- terra::resample(rast_200x_00x_crpd_clss, spat_grid_200x_00x, method='near')
+
+
+====================  Function =================================================
+
+## To call Function
+spat_grid_200x <- fire_to_spat_grid(rast_200x_00x_crpd, vect)
+
+## Write Raster
+terra::writeRaster(spat_grid_200x,"02. Forest Fire\\c. exported_spatialgrids\\fire_grid_200x_00x.tif", overwrite=TRUE)
+
+
+====================  Loop for 20 x 12 ========================================
+
+vect <- terra::vect("00. Amazon_shapefile\\projected\\amazon_shp_projected.shp")
+
+for (year in 2001:2020){
+  print(year)
+  
+  for (month in 1:12) {
+    print(month)  
+    
+    rast <- terra::rast(paste("02. Forest Fire\\b. projected_geotiffs\\projected\\fire_",year,"_05_06_",month,"_proj.tif", sep=""))
+    
+    rast_crop = crop(rast, vect)     
+    
+    terra::writeRaster(rast_crop, paste("02. Forest Fire\\c. exported_spatialgrids\\proj_crpd\\fire_proj_crpd_",year,"_",month,".tif", sep=""), overwrite=TRUE)
+    
+    spat_grid <- fire_to_spat_grid(rast_crop, vect)
+    
+    terra::writeRaster(spat_grid, paste("02. Forest Fire\\c. exported_spatialgrids\\fire_clss_grid_",year,"_",month,".tif", sep=""), overwrite=TRUE)
+    
+  }
+}
+
+
+================================================================================
+

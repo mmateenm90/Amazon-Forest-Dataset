@@ -1,0 +1,92 @@
+setwd("D:\\Forest_Fire_Work\\02. Data&Working")
+source("R_functions\\helper_functions.R")
+load_packages()
+
+vect <- terra::vect("00. Amazon_shapefile\\projected\\amazon_shp_projected.shp")
+
+====================  Elevation =================================================
+
+## Data Loading
+rast_elevation <- terra::rast("06. Elevation\\b. projected_geotiffs\\elevation_proj.tif")
+
+## Crop
+rast_elevation_crpd = crop(rast_elevation,vect)
+
+## Get Empty Spatial Grid
+spat_grid_elevation <- get_empty_grid(vect)
+
+## Disaggregate Work
+rast_elevation_crpd_disagg <- terra::disagg(rast_elevation_crpd, fact=c(2,2))
+
+## Resampling Work
+spat_grid_elevation_val <- terra::resample(rast_elevation_crpd_disagg, spat_grid_elevation, method='bilinear')
+
+## Elevation File Export
+terra::writeRaster(rast_elevation_crpd, paste("06. Elevation\\c. exported_spatialgrids\\proj_crpd\\elevation_proj_crpd.tif", sep=""), overwrite=TRUE)
+terra::writeRaster(spat_grid_elevation_val, paste("06. Elevation\\c. exported_spatialgrids\\elevation_grid.tif", sep=""), overwrite=TRUE)
+
+
+====================  Slope =================================================
+
+## Data Loading
+rast_slope <- terra::rast("06. Elevation\\b. projected_geotiffs\\slope_proj.tif")
+
+## Crop
+rast_slope_crpd = crop(rast_slope,vect)
+
+## Get Empty Spatial Grid
+spat_grid_slope <- get_empty_grid(vect)
+
+## Disaggregate Work
+rast_slope_crpd_disagg <- terra::disagg(rast_slope_crpd, fact=c(2,2))
+
+## Resampling Work
+spat_grid_slope_val <- terra::resample(rast_slope_crpd_disagg, spat_grid_slope, method='bilinear')
+
+## Elevation File Export
+terra::writeRaster(rast_slope_crpd, paste("06. Elevation\\c. exported_spatialgrids\\proj_crpd\\slope_proj_crpd.tif", sep=""), overwrite=TRUE)
+terra::writeRaster(spat_grid_slope_val, paste("06. Elevation\\c. exported_spatialgrids\\slope_grid.tif", sep=""), overwrite=TRUE)
+
+
+====================  Aspect Cosine =================================================
+
+## Data Loading
+rast_aspectcosine <- terra::rast("06. Elevation\\b. projected_geotiffs\\aspectcosine_proj.tif")
+
+## Crop
+rast_aspectcosine_crpd = crop(rast_aspectcosine,vect)
+
+## Get Empty Spatial Grid
+spat_grid_aspectcosine <- get_empty_grid(vect)
+
+## Disaggregate Work
+rast_aspectcosine_crpd_disagg <- terra::disagg(rast_aspectcosine_crpd, fact=c(2,2))
+
+## Resampling Work
+spat_grid_aspectcosine_val <- terra::resample(rast_aspectcosine_crpd_disagg, spat_grid_aspectcosine, method='bilinear')
+
+## Elevation File Export
+terra::writeRaster(rast_aspectcosine_crpd, paste("06. Elevation\\c. exported_spatialgrids\\proj_crpd\\aspectcosine_proj_crpd.tif", sep=""), overwrite=TRUE)
+terra::writeRaster(spat_grid_aspectcosine_val, paste("06. Elevation\\c. exported_spatialgrids\\aspectcosine_grid.tif", sep=""), overwrite=TRUE)
+
+
+====================  Aspect Sine =================================================
+
+## Data Loading
+rast_aspectsine <- terra::rast("06. Elevation\\b. projected_geotiffs\\aspectsine_proj.tif")
+
+## Crop
+rast_aspectsine_crpd = crop(rast_aspectsine,vect)
+
+## Get Empty Spatial Grid
+spat_grid_aspectsine <- get_empty_grid(vect)
+
+## Disaggregate Work
+rast_aspectsine_crpd_disagg <- terra::disagg(rast_aspectsine_crpd, fact=c(2,2))
+
+## Resampling Work
+spat_grid_aspectsine_val <- terra::resample(rast_aspectsine_crpd_disagg, spat_grid_aspectsine, method='bilinear')
+
+## Elevation File Export
+terra::writeRaster(rast_aspectsine_crpd, paste("06. Elevation\\c. exported_spatialgrids\\proj_crpd\\aspectsine_proj_crpd.tif", sep=""), overwrite=TRUE)
+terra::writeRaster(spat_grid_aspectsine_val, paste("06. Elevation\\c. exported_spatialgrids\\aspectsine_grid.tif", sep=""), overwrite=TRUE)

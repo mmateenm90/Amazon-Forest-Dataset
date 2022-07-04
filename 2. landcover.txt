@@ -1,0 +1,59 @@
+setwd("D:\\Forest_Fire_Work\\02. Data&Working")
+source("R_functions\\helper_functions.R")
+load_packages()
+
+
+## Data Loading
+rast_200x <- terra::rast("01. LandCover\\b. projected_geotiffs\\projected\\lulc_200x_proj.tif")
+vect <- terra::vect("00. Amazon_shapefile\\projected\\amazon_shp_projected.shp")
+
+## Crop
+rast_200x_crpd = crop(rast_200x,vect)
+
+====================  Linear =================================================
+
+## Get Empty Spatial Grid
+spat_grid_200x <- get_empty_grid(vect)
+
+## Disaggregate Work
+rast_200x_crpd_disagg <- terra::disagg(rast_200x_crpd, fact=c(11,11))
+
+## Resampling Work
+spat_grid_200x_val <- terra::resample(rast_200x_crpd_disagg, spat_grid_200x, method='near')
+
+
+====================  Function =================================================
+
+## To call Function
+spat_grid_200x <- lulc_to_spat_grid(rast_200x_crpd, vect)
+
+## Write Raster
+terra::writeRaster(spat_grid_200x,"01. LandCover\\c. exported_spatialgrids\\lulc_grid_200x.tif", overwrite=TRUE)
+
+
+====================  Loop for 20 =============================================
+
+vect <- terra::vect("00. Amazon_shapefile\\projected\\amazon_shp_projected.shp")
+
+for (year in 2001:2020){
+  print(year)
+
+  rast <- terra::rast(paste("01. LandCover\\b. projected_geotiffs\\projected\\lulc_",year,"_proj.tif", sep=""))
+
+  rast_crop = crop(rast, vect)     
+
+  terra::writeRaster(rast_crop, paste("01. LandCover\\c. exported_spatialgrids\\proj_crpd\\proj_crpd_",year,".tif", sep=""), overwrite=TRUE)
+
+  spat_grid <- lulc_to_spat_grid(rast_crop, vect)
+  
+  for (month in 1:12) {
+    print(month)  
+
+    terra::writeRaster(spat_grid, paste("01. LandCover\\c. exported_spatialgrids\\lulc_grid_",year,"_",month,".tif", sep=""), overwrite=TRUE)    
+    
+  }
+}
+
+
+================================================================================
+
