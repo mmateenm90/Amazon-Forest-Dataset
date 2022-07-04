@@ -13,7 +13,7 @@ R-Code related to raster-based dataset of covariates related to Forest1 Fire Ana
   (4) Save the Spatial Grid developed as output of that applied function
      
 * Function is generally designed to process as follows:
-  (c) Create an empty Spatial grid of 500m cell size, with the data extent of Amazon basin boundary
+  (a) Create an empty Spatial grid of 500m cell size, with the data extent of Amazon basin boundary
   (b) Disaggregate the input raster of variable data to approximately 500m cell size
   (c) Transfer the values of the data from Disaggregated raster file to empty Spatial Grid
   
