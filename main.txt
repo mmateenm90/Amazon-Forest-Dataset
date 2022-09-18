@@ -2,7 +2,7 @@
 ## R-Code for the processing of variables ##
 ********************************************
 
--> Addional file to load related to functions: functions.R  	(available in folder)
+-> Additional file to load related to functions: functions.R  	(available in folder)
 
 -> Additional file for instructions:	       Read Me		(available in folder)
 
@@ -19,12 +19,12 @@ IMPORTANT: <...> means user is required to replace paths as instructed
    (insert [a] file path for working directory - main folder from Dryad)
 	
 
-2) To load functions file assocaited with attributes processing:
+2) To load functions file associated with attributes processing:
 
 -> source("R_functions\\functions.R")		
 
 	
-3) To run function associated with loading rerquired R-packages  
+3) To run function associated with the loading of required R-packages  
 	
 -> load_packages()
 
@@ -48,7 +48,7 @@ IMPORTANT: <...> means user is required to replace paths as instructed
 
    (insert [a] input file name)  
 
-   e.g vect <- terra::vect("0. Amazon_shapefile\\projected\\amazon_shp_projected.shp")
+   e.g. vect <- terra::vect("0. Amazon_shapefile\\projected\\amazon_shp_projected.shp")
 		
 ------------------------------------------------------------------------------------------
 
