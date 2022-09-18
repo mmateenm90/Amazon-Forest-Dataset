@@ -6,7 +6,7 @@
 
    ## To Extract .tif layer from input HDF or HDF5 layer ##
 
-      -- Open Data Source Manager > Select 'Raster' for input category > Select (HDF/HDF5 file) > Select OK
+      -- Open Data Source Manager > Select 'Raster' for input category > Select (HDF/HDF5 file) > Select Ok
 
       -- New Prompt will appear providing list of layers available inside the HDF/HDF5 layer
 
