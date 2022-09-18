@@ -20,7 +20,7 @@
 
    -- Related to R-processing:
 
-      -- Code is similar for all variables (monthly-data) except Land Cover (annual-data) and Elevation (one-time data), which are explained separtely in 'main.txt'
+      -- Code is similar for all variables (monthly-data) except Land Cover (annual-data) and Elevation (one-time data), which are explained separately in 'main.txt'
 
       -- Code is designed to follow the below mentioned workflow for each respective month: 
 
