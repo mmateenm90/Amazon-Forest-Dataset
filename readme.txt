@@ -1,5 +1,5 @@
 
--> Reporsitory containing code and explantion of processes regarding the creation of Amazon Forest Dataset.
+-> Repository containing code and explanation of processes regarding the creation of Amazon Forest Dataset.
 
    -- Dataset is available at Dryad repository: <add link here after upload in Dryad>
 
