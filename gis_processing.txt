@@ -1,0 +1,33 @@
+
+-> Open Source GIS software Quantum GIS (QGIS) is used for the initial pre-processing of source data
+
+   -- Details related to each step are provided below:
+
+
+   ## To Extract .tif layer from input HDF or HDF5 layer ##
+
+      -- Open Data Source Manager > Select 'Raster' for input category > Select (HDF/HDF5 file) > Select OK
+
+      -- New Prompt will appear providing list of layers available inside the HDF/HDF5 layer
+
+      -- Select the layer you want to load
+
+      # To Save extracted layer
+  
+	-- Right Click on File Name in the list of layers > Select Export > Select Save As > (Save the file as .tif) 
+
+   ----------------------------------------------------------------------------------------------------------------------
+
+
+   ## To Assign Projection to the input file ##
+
+      -- Load .tif file
+
+      -- Select Raster Tab from top > Select Projections > Select Warp (Reproject) 
+
+      -- Select 'Run as Batch Process' (option available at left-bottom)
+
+      -- Select input layer(s), Source CRS, Target CRS, Re-sampling Method, and outfile file(s) path
+
+      -- Target CRS used in case of Amazon Forest Dataset is: (EPSG: 102033 - South_America_Albers_Equal_Area_Conic)
+
