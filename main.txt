@@ -132,7 +132,7 @@ terra::writeRaster(spat_grid_elevation_val, paste("5. Elevation\\03. Working Dat
 
 ## Additional data transformation related to Soil Moisture ##
 
--- 'soil_moisture_transform.py' files contain the python code to transform .tif file to correct coordinates using GDAL library
+-- 'soil_moisture_transform.py' file contains the python code to transform .tif file to correct coordinates using GDAL library
 
 
 
