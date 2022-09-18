@@ -27,7 +27,7 @@
 
       -- Select 'Run as Batch Process' (option available at left-bottom)
 
-      -- Select input layer(s), Source CRS, Target CRS, Re-sampling Method, and outfile file(s) path
+      -- Select input layer(s), Source CRS, Target CRS, Re-sampling Method, and output file(s) path
 
       -- Target CRS used in case of Amazon Forest Dataset is: (EPSG: 102033 - South_America_Albers_Equal_Area_Conic)
 
