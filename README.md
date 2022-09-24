@@ -16,9 +16,9 @@ Each function is generally designed to process as follows:
 
 a. Create an empty Spatial grid of 500m cell size, with the data extent of Amazon basin boundary 
 
-b. Dis-aggregate the input raster of variable data to approximately 500m cell size 
+b. Disaggregate the input raster of variable data to approximately 500m cell size 
 
-c. Transfer the values of the data from dis-aggregated raster file to empty Spatial Grid
+c. Transfer the values of the data from disaggregated raster file to empty Spatial Grid
 
 
 ## R processing

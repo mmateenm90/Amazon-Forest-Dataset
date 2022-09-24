@@ -4,7 +4,7 @@
 
 -> Additional file to load related to functions: functions.R  	(available in folder)
 
--> Additional file for instructions:	       Read Me		(available in folder)
+-> Additional file for instructions:	       Readme		(available in folder)
 
 IMPORTANT: <...> means user is required to replace paths as instructed
 
