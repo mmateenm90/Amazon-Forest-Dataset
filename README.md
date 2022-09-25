@@ -34,4 +34,4 @@ b. Call the respective function for that variable
 c. Save the Spatial Grid developed as output of that applied function
  
  
-![](all_ten_var.png)
+![](all_ten_var_2.png)
