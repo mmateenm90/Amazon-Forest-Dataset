@@ -2,7 +2,7 @@
 
 This repository contains the code and explanation of processes regarding the creation of the Amazon Forest Dataset: A raster-based dataset of covariates related to the spatio-temporal analysis of forest fires for the region of Amazon Rainforest from 2001 to 2020.
 
-Dataset is available at Dryad repository: <add link here after upload in Dryad>
+Dataset is available at Dryad repository.
 
 ## Creation of Amazon Forest Dataset
 
